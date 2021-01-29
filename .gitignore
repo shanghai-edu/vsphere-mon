@@ -1,0 +1,5 @@
+*.exe
+vsphere-mon
+etc/vsphere.local.yml
+etc/address.local.yml
+logs/
