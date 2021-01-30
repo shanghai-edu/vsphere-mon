@@ -101,7 +101,7 @@ vsphere-mon:
 ```yml
 logger:
   dir: logs/
-  level: WARNING
+  level: INFO
   keepHours: 24
 
 # 上报的间隔，注意关注下 info.log 的日志，确保能够在一个周期内完成采集
