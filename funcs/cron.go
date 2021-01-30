@@ -49,7 +49,14 @@ func collectOnce(vcConfig config.VsphereSection, perfConfig config.PerfSection, 
 		return
 	}
 	defer c.Logout(ctx)
+	//collecto vsphere
 	collectVsphere(sec, ts, vcConfig.Nid, models.VcenterAlive(true, vcConfig.Addr))
+	datastores, err := models.DatastoreMetrics(ctx, c)
+	if err != nil {
+		logger.Warningf("get datastores failed: %v", err)
+	} else {
+		collectVsphere(sec, ts, vcConfig.Nid, datastores)
+	}
 
 	//collect esxi
 	esxiList, err := models.EsxiList(ctx, c)

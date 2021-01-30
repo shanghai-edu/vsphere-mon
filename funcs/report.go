@@ -55,9 +55,17 @@ func report(esxi mo.HostSystem) error {
 		"tenant":  config.Get().Report.Tenant,
 	}
 
+	var ip string
+
+	if str.IsIP(esxi.Summary.Config.Name) {
+		ip = esxi.Summary.Config.Name
+	} else {
+		ip = ""
+	}
+
 	form := hostRegisterForm{
 		SN:      getEsxiSn(esxi),
-		IP:      esxi.Summary.Config.Name,
+		IP:      ip,
 		Ident:   esxi.Summary.Config.Name,
 		Name:    esxi.Summary.Config.Name,
 		Cate:    config.Get().Report.Cate,
