@@ -2,7 +2,9 @@
 
 ## 功能
 适配 [nightingale](https://github.com/didi/nightingale)，采集 vsphere 相关指标
+
 支持 ESXi 和 VM 相关指标监控
+
 支持 ESXi 作为主机资产自动注册的 nightingale 的 ams 中
 
 
@@ -21,7 +23,7 @@ ESXi 以设备相关的方式上报数据，设备资产数据会自动注册到
 |cpu|物理核心数，不考虑超线程|
 |mem|内存，单位是G|
 |model|硬件型号，在 ams 中创建扩展字段 model 后可见|
-|version|esxi 的 fullname，即类似 VMware ESXi 6.7.0 build-13473784|
+|version|esxi 的 fullname，即类似 VMware ESXi 6.7.0 build-13473784，在 ams 中创建扩展字段 version 后可见|
 
 ##### 基础指标
 |metric|说明|
@@ -116,8 +118,8 @@ report:
   uniqkey: ip  
   # 租户，如果配置则直接注册到该租户下
   tenant: 
-# 要监控的 vsphere 的配置信息
 
+# 要监控的 vsphere 的配置信息
 vspheres:
     # vcenter 的地址
   - addr: https://1.1.1.1/sdk

@@ -15,8 +15,8 @@ report:
   uniqkey: ip  
   # 租户，如果配置则直接注册到该租户下
   tenant: 
-# 要监控的 vsphere 的配置信息
 
+# 要监控的 vsphere 的配置信息
 vspheres:
     # vcenter 的地址
   - addr: https://1.1.1.1/sdk
