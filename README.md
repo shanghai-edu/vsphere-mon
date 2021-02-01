@@ -16,7 +16,7 @@ ESXi 以设备相关的方式上报数据，设备资产数据会自动注册到
 |--|--|
 |sn|硬件序列号，如果取不到会使用 uuid 替代|
 |endpoint|esxi 的 name，通常是 ip 地址|
-|ip|esxi 的 name，通常是 ip 地址，如果检查不是 ip 则留空|
+|ip|esxi 的 name，通常是 ip 地址，如果不是 ip 会尝试对 name 做域名解析获取 ip|
 |name|esxi 的 name，通常是 ip 地址|
 |cate|分类，根据配置决定，默认是 physical|
 |tenant|租户，根据配置决定，默认是空|

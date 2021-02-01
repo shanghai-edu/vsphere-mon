@@ -6,6 +6,7 @@ import (
 
 	"sort"
 
+	"net"
 	"time"
 
 	"github.com/toolkits/pkg/net/httplib"
@@ -60,7 +61,11 @@ func report(esxi mo.HostSystem) error {
 	if str.IsIP(esxi.Summary.Config.Name) {
 		ip = esxi.Summary.Config.Name
 	} else {
-		ip = ""
+		addr, err := net.ResolveIPAddr("ip4", esxi.Summary.Config.Name)
+		if err != nil {
+			return err
+		}
+		ip = addr.String()
 	}
 
 	form := hostRegisterForm{
