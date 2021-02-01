@@ -67,7 +67,6 @@ func collectOnce(vcConfig config.VsphereSection, perfConfig config.PerfSection, 
 	for _, esxi := range esxiList {
 		if err := report(esxi); err != nil {
 			logger.Errorf("report esxi failed, %v", err)
-			return
 		}
 		collectEsxi(sec, ts, models.EsxiPower(esxi))
 		collectEsxi(sec, ts, models.EsxiStatus(esxi))
