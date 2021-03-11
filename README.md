@@ -12,6 +12,8 @@
 #### ESXi
 ESXi 以设备相关的方式上报数据，设备资产数据会自动注册到夜莺中
 ##### report 信息
+需要先在 ams 中创建2个扩展字段 `model` 和 `version` ，否则上报会失败。
+
 |字段|说明|
 |--|--|
 |sn|硬件序列号，如果取不到会使用 uuid 替代|
@@ -22,8 +24,8 @@ ESXi 以设备相关的方式上报数据，设备资产数据会自动注册到
 |tenant|租户，根据配置决定，默认是空|
 |cpu|物理核心数，不考虑超线程|
 |mem|内存，单位是G|
-|model|硬件型号，在 ams 中创建扩展字段 model 后可见|
-|version|esxi 的 fullname，即类似 VMware ESXi 6.7.0 build-13473784，在 ams 中创建扩展字段 version 后可见|
+|model|硬件型号，需要先在 ams 中创建扩展字段 model|
+|version|esxi 的 fullname，即类似 VMware ESXi 6.7.0 build-13473784，需要先在 ams 中创建扩展字段 version|
 
 ##### 基础指标
 |metric|说明|
